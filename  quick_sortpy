@@ -1,0 +1,18 @@
+def quick_sort(sequence):
+    # Якщо довжина списку менше або дорівнює 1, список вже відсортований
+    if len(sequence) <= 1:
+        return sequence
+
+    # Вибираємо перший елемент як опорний (pivot)
+    pivot = sequence[0]
+    # Створюємо два списки: лівий з елементами меншими за опорний, правий з елементами більшими або рівними опорному
+    left = [element for element in sequence[1:] if element < pivot]
+    right = [element for element in sequence[1:] if element >= pivot]
+    # Рекурсивно сортуємо лівий і правий списки, а потім об'єднуємо їх разом з опорним елементом
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+if __name__ == "__main__":
+    # Задаємо список, який потрібно відсортувати
+    to_sort = [15, 9, 8, 1, 4, 11, 7, 12, 13, 6, 5, 3, 16, 2, 10, 14]
+    # Викликаємо функцію сортування і друкуємо відсортований список
+    print(quick_sort(to_sort))
